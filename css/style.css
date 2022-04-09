@@ -1,0 +1,81 @@
+body {
+    background-color: #EEF9BF;
+    font-family: 'Roboto', sans-serif;
+}
+.content {
+    width: 100%;
+    max-width: 872px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content .title h1 {
+    color: #75B79E;
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 117px;
+    height: 146px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+}
+
+.card .front-side {
+    display: flex;
+}
+
+.card .back-side {
+    transform: rotateY(180deg);
+}
+
+.side {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    border: solid 1px #99CEA8;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+
+.card.flip-back .back-side {
+    transform: rotateY(0deg);
+}
+
+.card.flip-back .front-side {
+    transform: rotateY(-180deg);
+}
+
+.card.flip-front .back-side {
+    transform: rotateY(-180deg);
+}
+
+.card.flip-front .front-side {
+    transform: rotateY(0deg);
+}

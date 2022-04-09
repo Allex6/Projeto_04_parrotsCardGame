@@ -1,0 +1,17 @@
+@media (max-width: 414px){
+
+    .content .title h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .card-list {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 180px;
+        height: 219px;
+    }
+
+}
