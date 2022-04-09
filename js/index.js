@@ -15,11 +15,17 @@ let shuffledCards = [];
 let upturnedCards = [];
 let actualFlippedCard = null;
 
-function validateUserInput(input){
+function validateUserInput(){
     return (isNaN(cardsQty) || cardsQty < 4 || cardsQty > 14 || (cardsQty % 2 === 1));
 }
 
 function init(){
+
+    cardsQty = 0;
+    playerMoves = 0;
+    shuffledCards = [];
+    upturnedCards = [];
+    actualFlippedCard = null;
 
     do {
         cardsQty = Number(prompt('Informe a quantidade de cartas do jogo. Você precisa informar um número entre 4 e 14: '));
@@ -93,7 +99,7 @@ function clickCard(element){
 
                 upturnedCards.push(cardImg);
                 setTimeout(function(){
-                    if(upturnedCards.length === shuffledCards.length) alert(`Você ganhou em ${playerMoves} jogadas!`);
+                    if(upturnedCards.length === shuffledCards.length) finishGame();
                 }, 500);
     
             } else {
@@ -136,6 +142,14 @@ function wrongGuess(element){
 
     element.classList.remove('flip-back');
     element.classList.add('flip-front');
+
+}
+
+function finishGame(){
+
+    alert(`Você ganhou em ${playerMoves} jogadas!`);
+    const restartGame = prompt('Deseja reiniciar o jogo ?').trim().toLowerCase();
+    if(restartGame === 'sim') init();
 
 }
 
